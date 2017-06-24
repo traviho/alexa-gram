@@ -1,0 +1,21 @@
+{
+  "intents": [
+    {
+      "slots": [
+        {
+          "name": "animal",
+          "type": "AMAZON.Animal"
+        },
+        {
+          "name": "actor",
+          "type": "AMAZON.Actor"
+        },
+        {
+          "name": "area",
+          "type": "AMAZON.AdministrativeArea"
+        }
+      ],
+      "intent": "QueryIntent"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+QueryIntent show me {animal}
+QueryIntent show me {actor}
+QueryIntent show me {area}
+QueryIntent give me a hologram of {animal}
+QueryIntent give me a hologram of {actor}
+QueryIntent give me a hologram of {area}
+QueryIntent what is a {animal}
+QueryIntent what does {animal} look like
+QueryIntent who is {actor}
+QueryIntent where is {area}
