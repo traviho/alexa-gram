@@ -24,29 +24,47 @@
 	light.position.set(5,3,5);
 	scene.add(light);
 
-    var sphere = createSphere(radius, segments);
+  var sphere = createSphere(radius, segments);
 	sphere.rotation.y = rotation;
 	scene.add(sphere)
   var clouds = createClouds(radius, segments);
-clouds.rotation.y = rotation;
-scene.add(clouds)
+  clouds.rotation.y = rotation;
+  scene.add(clouds)
 
-var stars = createStars(90, 64);
-scene.add(stars);
+  var stars = createStars(90, 64);
+  scene.add(stars);
 
-//var controls = new THREE.TrackballControls(camera);
+  //var controls = new THREE.TrackballControls(camera);
 
-globeElement.appendChild(renderer.domElement);
+  globeElement.appendChild(renderer.domElement);
 
-render();
+  render();
 
-function render() {
-//controls.update();
-sphere.rotation.y += 0.0005;
-clouds.rotation.y += 0.0005;
-requestAnimationFrame(render);
-renderer.render(scene, camera);
-}
+  function render() {
+    //controls.update();
+    //sphere.rotation.y += 0.0005;
+    //clouds.rotation.y += 0.0005;
+    requestAnimationFrame(render);
+    renderer.render(scene, camera);
+  }
+
+  Leap.loop({
+        // frame callback is run before individual frame components
+        frame: function(frame){
+          console.log("Hello");
+        },
+        // hand callbacks are run once for each hand in the frame
+        hand: function(hand){
+          //out.innerHTML += "Hand: " + hand.id + ' &nbsp;roll: ' + Math.round(hand.roll() * TO_DEG) + '°<br/>'
+          var rotation = hand.yaw();
+          var pitch  = hand.pitch();
+          sphere.rotation.y = 4*rotation;
+          clouds.rotation.y = 4*rotation;
+          //sphere.rotation.x = 4*pitch;
+        //  clouds.rotation.x = 4*pitch;
+          console.log(rotation);
+        }
+      });
 
 function createSphere(radius, segments) {
 return new THREE.Mesh(
