@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/traviho/alexa-gram/issues"
   },
+  "dependencies": {
+    "aws-iot-device-sdk": "^1.0.14"
+  },
   "homepage": "https://github.com/traviho/alexa-gram#readme"
 }
