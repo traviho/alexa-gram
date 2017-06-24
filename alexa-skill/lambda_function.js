@@ -2,17 +2,30 @@
 var AWS = require('aws-sdk');
 var Alexa = require("alexa-sdk");
 
-const APP_ID = amzn1.ask.skill.65f80586-58d3-4b1e-a4f3-ebee54282f55
+var iotdata = new AWS.IotData({endpoint: 'a38ch8r6fxorip.iot.us-east-1.amazonaws.com'});
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
-    alexa.APP_ID = APP_ID;
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
 
 var handlers = {
-	'HelloIntent': function () {
-        this.emit(':tell', 'Hello World!');
+	'QueryIntent': function () {
+		const slots = this.event.request.intent.slots;
+		const payload = slots.animal.value || slots.actor.value || slots.area.value;
+		var params = {
+	        topic: 'topic_query',
+	        payload: payload,
+	        qos: 0
+	    };
+	    iotdata.publish(params, function(err, data){
+	        if(err){
+	            console.log(err);
+	        }	
+	        else{
+	            console.log("success");
+	        }
+	    });
     }
-}
+};
