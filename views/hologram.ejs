@@ -42,10 +42,14 @@
 	<script>
   	var socket = io();
 
-  	socket.on('image url', function(bodyHTML, url) {
+    socket.on('image url', function(bodyHTML, url) {
       document.getElementsByTagName('body')[0].innerHTML = bodyHTML;
 
   		$('.holo-img').attr("src", url);
+  	});
+
+    socket.on('movie-trailer', function(bodyHTML) {
+      document.getElementsByTagName('body')[0].innerHTML = bodyHTML;
   	});
 
   	socket.on('draw-something', function(bodyHTML) {

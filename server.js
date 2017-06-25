@@ -41,6 +41,8 @@ device
       io.emit('image url', "../Alexagram-Welcome-Screen.png")
     } else if (message === "meme-gifs") {
       searchImage('meme-gifs');
+    } else if (message === "movie-trailer") {
+      io.emit('movie-trailer', movieHTML);
     } else if (message.includes("weather")) {
       var str = message.replace(/\s/g, '_');
       str = str.substr(8);
@@ -68,6 +70,25 @@ client.get("http://api.wunderground.com/api/58fb1eddb9fd5550/conditions/q/CA/" +
 });
 }
 
+var movieHTML = `
+  <div id="container">
+    <video id = "north" src = "views/Avengers.mp4" autoplay="true"  class  = "holo-img" />
+
+    <div id = "leftDiv">
+        <video class  = "holo-img" id= "west" src = "views/Avengers.mp4" autoplay="true" />
+    </div>
+
+    <div id = "rightDiv">
+        <video id = "east" src = "views/Avengers.mp4" autoplay="true"  class  = "holo-img" />
+    </div>
+  </div>
+
+  <div id="south-div-footer">
+    <div id="south-div-center">
+      <video id = "south" src = "views/Avengers.mp4" autoplay="true"  class  = "holo-img" />
+    </div>
+  </div>
+`;
 
 var drawingHTML = `
   <div class="container">
