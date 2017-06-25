@@ -3,7 +3,6 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 app.set('view engine', 'ejs');
-var request = require('request');
 var $ = require('jquery');
 var awsIot = require('aws-iot-device-sdk');
 
