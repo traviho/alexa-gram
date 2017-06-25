@@ -35,14 +35,14 @@ var handlers = {
     },
     'WeatherIntent': function () {
         const self = this;
-        var payload = 'weather ' + this.event.request.intent.slots.city.value;
+        var payload = 'weather-' + this.event.request.intent.slots.city.value;
         var params = {
 	        topic: 'topic_query',
 	        payload: payload,
 	        qos: 0
 	    };
 	    iotdata.publish(params, function(err, data){
-	        self.emit(':tell', 'The weather in ' + payload + '!');
+	        self.emit(':tell', 'This is the weather in ' + payload + '!');
 	    });
     },
 	'QueryIntent': function () {
