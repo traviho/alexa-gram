@@ -3,10 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="styles/hologram.css" />
   </head>
   <body>
 
-    <img id="img" src=<%= url %> />
+    <div class="container">
+      <div>
+        <img class="holo-img" id="north" src=<%= url %> />
+      </div>
+
+      <div>
+        <img class="holo-img" id="east" src=<%= url %> />
+      </div>
+
+      <div>
+        <img class="holo-img" id="west" src=<%= url %> />
+      </div>
+    </div>
+
+    <div id="south-div-footer">
+      <div id="south-div-center">
+        <img class="holo-img" id="south" src=<%= url %> />
+      </div>
+    </div>
 
   </body>
 
@@ -16,7 +35,7 @@
   	var socket = io();
 
   	socket.on('image url', function(url){
-  		$('#img').attr("src", url);
+  		$('.holo-img').attr("src", url);
   	});
 	</script>
 </html>
