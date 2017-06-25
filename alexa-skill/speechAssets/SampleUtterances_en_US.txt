@@ -17,6 +17,9 @@ MovieIntent open movie trailer
 DrawIntent start drawing
 DrawIntent let me draw
 DrawIntent draw something
+MemeIntent show me a meme
+MemeIntent make me laugh
+MemeIntent do something funny
 WeatherIntent Whats the weather like in {city}
 WeatherIntent How is it outside in {city}
 WeatherIntent whats the weather like at {city}

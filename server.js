@@ -27,12 +27,14 @@ device
   .on('message', function(topic, payload) {
     message = payload.toString();
 
-    if (message == "spin-the-earth") {
+    if (message === "spin-the-earth") {
       io.emit('spin-the-earth');
-    } else if (message == "draw-something") {
+    } else if (message === "draw-something") {
       io.emit('draw-something', drawingHTML);
-    } else if (message == "go-to-home") {
+    } else if (message === "go-to-home") {
       io.emit('image url', "../Alexagram-Welcome-Screen.png")
+    } else if (message === "meme-gifs") {
+      searchImage('meme-gifs');
     } else {
       searchImage(message);
     }
@@ -94,6 +96,9 @@ function searchImage(message) {
        });
 
        console.log(imageUrl);
+       if (message === "meme-gifs") {
+        imageUrl = 'http://i.imgur.com/E7YAB51.gif';
+       }
        io.emit('image url', imageUrl);
 
        // make save image function call here

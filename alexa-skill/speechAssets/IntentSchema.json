@@ -31,6 +31,9 @@
       "intent": "DrawIntent"
     },
     {
+      "intent": "MemeIntent"
+    },
+    {
       "intent": "AMAZON.StopIntent"
     },
     {
