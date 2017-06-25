@@ -1,0 +1,59 @@
+body {
+  background-color: black;
+}
+
+.container {
+  width: 120vh;
+  margin: auto;
+}
+
+.holo-img {
+  max-height: 30vh;
+}
+
+#north, #south {
+  display: block;
+  margin: auto;
+}
+
+#south-div-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#south-div-center {
+    width: 500px;
+    margin: 0 auto;
+}
+
+#north {
+  /* Rotate div */
+  -ms-transform: rotate(180deg); /* IE 9 */
+  -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+  transform: rotate(180deg);
+}
+
+#east {
+  /* Rotate div */
+  float: left;
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+}
+#leftDiv {
+
+transform: translate(0,40px); 
+}
+
+
+#west {
+  /* Rotate div */
+  float: right;
+  -ms-transform: rotate(-90deg); /* IE 9 */
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+}
+#rightDiv{
+transform: translate(0,40px); 
+}

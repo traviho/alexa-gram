@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="stuff, to, help, search, engines, not" name="keywords">
+<meta content="What this page is about." name="description">
+<meta content="Display Webcam Stream" name="title">
+<link rel="stylesheet" href="css/styles.css">
+
+<title>Display Webcam Stream</title>
+
+</head>
+  
+<body>
+<div id="container">
+    <video id = "north" autoplay="true"  class  = "holo-img"> 
+    </video>
+    <div id = "leftDiv">
+    <video class  = "holo-img" id= "west" autoplay="true"> 
+    </video>
+    </div>
+
+
+<div id = "rightDiv">
+    <video id = "east" autoplay="true"  class  = "holo-img"> 
+    </video>
+</div>
+</div>
+
+  <div id="south-div-footer">
+      <div id="south-div-center">
+   <video id = "south" autoplay="true"  class  = "holo-img"> 
+    </video>
+      </div>
+    </div>
+
+<script>
+ var video = document.querySelector("#west");
+ var eastVideo = document.querySelector("#east");
+  var northVideo = document.querySelector("#north");
+   var southVideo = document.querySelector("#south");
+ 
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+ 
+if (navigator.getUserMedia) {       
+    navigator.getUserMedia({video: true}, handleVideo, videoError);
+}
+ 
+function handleVideo(stream) {
+    video.src = window.URL.createObjectURL(stream);
+    eastVideo.src =  window.URL.createObjectURL(stream);
+    northVideo.src =  window.URL.createObjectURL(stream);
+    southVideo.src =  window.URL.createObjectURL(stream);
+
+}
+
+ 
+function videoError(e) {
+    // do something
+}
+</script>
+</body>
+</html>
