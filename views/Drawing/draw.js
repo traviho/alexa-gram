@@ -27,6 +27,8 @@ var controllerOptions = { enableGestures: true },
     ctx2 = canvas2.getContext('2d'),
     ctx3 = canvas3.getContext('2d'),
     ctx4 = canvas4.getContext('2d'),
+    before4 = {},
+    after4 = {},
     before3 = {},
     after3 = {},
     before2 = {},
@@ -35,17 +37,20 @@ var controllerOptions = { enableGestures: true },
     after = {},
     color = d3.scale.category20();
 
-ctx.lineWidth = 25;
+ctx.lineWidth = 15;
 ctx.translate(width/2, height);
 
-ctx2.lineWidth = 25;
+ctx2.lineWidth = 15;
 ctx2.translate(width/2, height);
 
-ctx3.lineWidth = 25;
+ctx3.lineWidth = 15;
 ctx3.translate(width/2, height);
 
+ctx4.lineWidth = 15;
+ctx4.translate(width/2, height);
+
 function draw() {
-    var a, b, a2, b2, a3, b3;
+    var a, b, a2, b2, a3, b3, a4, b4;
 
     for (var id in after) {
       console.log("The ID is: " + id)
@@ -58,7 +63,10 @@ function draw() {
         b3 = before2[id],
         a3 = after2[id];
 
-        if (!b && !b2 && !b3) continue;
+        b4 = before2[id],
+        a4 = after2[id];
+
+        if (!b && !b2 && !b3 && !b4) continue;
 
         ctx.strokeStyle = color(id);
         ctx.moveTo(2.5*b.tipPosition.x, 1.5*-b.tipPosition.y);
@@ -77,12 +85,20 @@ function draw() {
         ctx3.lineTo(2.5*a3.tipPosition.x, 1.5*-a3.tipPosition.y);
         ctx3.stroke();
         ctx3.beginPath();
+
+        ctx4.strokeStyle = color(id);
+        ctx4.moveTo(2.5*b4.tipPosition.x, 1.5*-b4.tipPosition.y);
+        ctx4.lineTo(2.5*a4.tipPosition.x, 1.5*-a4.tipPosition.y);
+        ctx4.stroke();
+        ctx4.beginPath();
         break;
     }
 
     before = after;
     before2 = after2;
     before3 = after3;
+    before4 = after3;
+
 
 }
 
@@ -90,11 +106,15 @@ Leap.loop(controllerOptions, function(frame, done) {
     after = {};
     after2 = {};
     after3 = {};
+    after4 = {};
+
 
     for (var i = 0; i < frame.pointables.length; i++) {
         after[frame.pointables[i].id] = frame.pointables[i];
         after2[frame.pointables[i].id] = frame.pointables[i];
         after3[frame.pointables[i].id] = frame.pointables[i];
+        after4[frame.pointables[i].id] = frame.pointables[i];
+
     }
     draw();
     done();
