@@ -28,6 +28,12 @@
       "intent": "MovieIntent"
     },
     {
+      "intent": "DrawIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
       "slots": [
         {
           "name": "city",

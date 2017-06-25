@@ -22,6 +22,28 @@ var handlers = {
 	        self.emit(':tell', 'pulling up Earth!');
 	    });
     },
+    'DrawIntent': function () {
+		const self = this;
+        var params = {
+	        topic: 'topic_query',
+	        payload: "draw-something",
+	        qos: 0
+	    };
+	    iotdata.publish(params, function(err, data){
+	        self.emit(':tell', 'drawing interface started!');
+	    });
+    },
+    'AMAZON.StopIntent': function () {
+		const self = this;
+        var params = {
+	        topic: 'topic_query',
+	        payload: "go-to-default",
+	        qos: 0
+	    };
+	    iotdata.publish(params, function(err, data){
+	        self.emit(':tell', 'going home');
+	    });
+    },
     'MovieIntent': function () {
         const self = this;
         var params = {

@@ -8,12 +8,15 @@ QueryIntent what is a {animal}
 QueryIntent what does {animal} look like
 QueryIntent what does {food} look like
 QueryIntent who is {actor}
-EarthIntent show we Earth
+EarthIntent show me Earth
 EarthIntent Google World
 EarthIntent open world map
 MovieIntent What movies are playing
 MovieIntent show me film trailers
 MovieIntent open movie trailer
+DrawIntent start drawing
+DrawIntent let me draw
+DrawIntent draw something
 WeatherIntent Whats the weather like in {city}
 WeatherIntent How is it outside in {city}
 WeatherIntent whats the weather like at {city}
