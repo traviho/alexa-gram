@@ -27,11 +27,11 @@ device
   .on('message', function(topic, payload) {
     message = payload.toString();
 
-    if (message == "spin-the-earth") {
+    if (message === "spin-the-earth") {
       io.emit('spin-the-earth');
-    } else if (message == "draw-something") {
+    } else if (message === "draw-something") {
       io.emit('draw-something', drawingHTML);
-    } else if (message == "go-to-home") {
+    } else if (message === "go-to-home") {
       io.emit('image url', "../Alexagram-Welcome-Screen.png")
     } else {
       searchImage(message);

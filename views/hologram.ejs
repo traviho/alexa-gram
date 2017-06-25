@@ -39,7 +39,8 @@
   	});
 
   	socket.on('draw-something', function(bodyHTML) {
-  		$(body).innerHTML() = bodyHTML;
+      // console.log(document.getElementsByTagName('body')[0]);
+  		document.getElementsByTagName('body')[0].innerHTML = bodyHTML;
   	});
 	</script>
 </html>
