@@ -22,6 +22,15 @@
     },
     {
       "intent": "MovieIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "city",
+          "type": "AMAZON.US_CITY"
+        }
+      ],
+      "intent": "WeatherIntent"
     }
   ]
 }

@@ -15,7 +15,7 @@ var handlers = {
 		const self = this;
         var params = {
 	        topic: 'topic_query',
-	        payload: "111",
+	        payload: "spin-the-earth",
 	        qos: 0
 	    };
 	    iotdata.publish(params, function(err, data){
@@ -35,13 +35,14 @@ var handlers = {
     },
     'WeatherIntent': function () {
         const self = this;
+        var payload = 'weather ' + this.event.request.intent.slots.city.value;
         var params = {
 	        topic: 'topic_query',
-	        payload: "333",
+	        payload: payload,
 	        qos: 0
 	    };
 	    iotdata.publish(params, function(err, data){
-	        self.emit(':tell', 'The weather for today!');
+	        self.emit(':tell', 'The weather in ' + payload + '!');
 	    });
     },
 	'QueryIntent': function () {
