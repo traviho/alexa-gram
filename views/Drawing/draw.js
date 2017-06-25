@@ -8,17 +8,21 @@ var controllerOptions = { enableGestures: true },
 
     }
     canvas = d3.select('div#north')
-        .append('canvas')
-        .attr('width', width)
-        .attr('height', height).node(),
+        .append('canvas').node(),
     canvas2 = d3.select('div#east')
-        .append('canvas')
-        .attr('width', width)
-        .attr('height', height).node(),
+        .append('canvas').node(),
     canvas3 = d3.select('div#west')
-        .append('canvas')
-        .attr('width', width)
-        .attr('height', height).node(),
+        .append('canvas').node(),
+    canvas4 = d3.select('div#south')
+        .append('canvas').node(),
+    canvas.style.width = '30vh',
+    canvas.style.height = '30vh',
+    canvas2.style.width = '30vh',
+    canvas2.style.height = '30vh',
+    canvas3.style.width = '30vh',
+    canvas3.style.height = '30vh',
+    canvas4.style.width = '30vh',
+    canvas4.style.height = '30vh',
     ctx = canvas.getContext('2d'),
     ctx2 = canvas2.getContext('2d'),
     ctx3 = canvas3.getContext('2d'),

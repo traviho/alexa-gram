@@ -11,6 +11,16 @@ body {
   max-height: 30vh;
 }
 
+.draw-canvas {
+  width: 300px;
+  height: 300px;
+}
+
+canvas {
+  display: block;
+  margin: auto;
+}
+
 #north, #south {
   display: block;
   margin: auto;
