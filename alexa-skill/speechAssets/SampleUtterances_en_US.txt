@@ -10,5 +10,10 @@ QueryIntent what does {food} look like
 QueryIntent who is {actor}
 EarthIntent show we Earth
 EarthIntent Google World
-MovieIntent What movies are playing today
+EarthIntent open world map
+MovieIntent What movies are playing
 MovieIntent show me film trailers
+MovieIntent open movie trailer
+WeatherIntent Whats the weather like in {city}
+WeatherIntent How is it outside in {city}
+WeatherIntent whats the weather like at {city}
