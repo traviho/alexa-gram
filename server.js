@@ -28,11 +28,35 @@ device
     message = payload.toString();
 
     if (message == "spin-the-earth") {
-      io.emit('image url', imageUrl);
+      io.emit('spin-the-earth');
+    } else if (message == "draw-something") {
+      io.emit('draw-something', drawingHTML);
+    } else if (message == "go-to-home") {
+      io.emit('image url', "../Alexagram-Welcome-Screen.png")
     } else {
       searchImage(message);
     }
   });
+
+var drawingHTML = `
+  <div class="container">
+      <div class="draw-canvas" id="north"></div>
+
+      <div class="draw-canvas" id="east" style="transform: rotate(90deg) translate(-3vh,0px)"></div>
+
+      <div class="draw-canvas" id="west" style="transform: rotate(-90deg) translate(3vh,0px)"></div>
+  </div>
+
+  <div id="south-div-footer">
+    <div id="south-div-center">
+      <div class="draw-canvas" id="south"></div>
+    </div>
+  </div>
+
+  <script src="./Drawing/js/lib/leap.js"></script>
+  <script src='./Drawing/js/lib/d3.v3.min.js'></script>
+  <script src='./Drawing/draw.js'></script>
+`;
 
 function searchImage(message) {
   const GoogleImages = require('google-images');
