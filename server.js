@@ -56,6 +56,28 @@ var drawingHTML = `
   </div>
 `;
 
+var imageHTML = `
+  <div class="container">
+    <div>
+      <img class="holo-img" id="north" />
+    </div>
+
+    <div>
+      <img class="holo-img" id="east" />
+    </div>
+
+    <div>
+      <img class="holo-img" id="west" />
+    </div>
+  </div>
+
+  <div id="south-div-footer">
+    <div id="south-div-center">
+      <img class="holo-img" id="south" />
+    </div>
+  </div>
+`
+
 function searchImage(message) {
   const GoogleImages = require('google-images');
 
@@ -95,7 +117,7 @@ function searchImage(message) {
        if (message === "meme-gifs") {
         imageUrl = 'http://i.imgur.com/E7YAB51.gif';
        }
-       io.emit('image url', imageUrl);
+       io.emit('image url', imageHTML, imageUrl);
 
        // make save image function call here
   	});

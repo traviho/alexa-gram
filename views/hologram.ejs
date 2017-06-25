@@ -42,7 +42,9 @@
 	<script>
   	var socket = io();
 
-  	socket.on('image url', function(url) {
+  	socket.on('image url', function(bodyHTML, url) {
+      document.getElementsByTagName('body')[0].innerHTML = bodyHTML;
+
   		$('.holo-img').attr("src", url);
   	});
 
