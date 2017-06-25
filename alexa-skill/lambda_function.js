@@ -22,6 +22,39 @@ var handlers = {
 	        self.emit(':tell', 'pulling up Earth!');
 	    });
     },
+    'DrawIntent': function () {
+		const self = this;
+        var params = {
+	        topic: 'topic_query',
+	        payload: "draw-something",
+	        qos: 0
+	    };
+	    iotdata.publish(params, function(err, data){
+	        self.emit(':tell', 'drawing interface started!');
+	    });
+    },
+    'MemeIntent': function () {
+		const self = this;
+        var params = {
+	        topic: 'topic_query',
+	        payload: "meme-gifs",
+	        qos: 0
+	    };
+	    iotdata.publish(params, function(err, data){
+	        self.emit(':tell', 'loading something funny!');
+	    });
+    },
+    'AMAZON.StopIntent': function () {
+		const self = this;
+        var params = {
+	        topic: 'topic_query',
+	        payload: "go-to-default",
+	        qos: 0
+	    };
+	    iotdata.publish(params, function(err, data){
+	        self.emit(':tell', 'going home');
+	    });
+    },
     'MovieIntent': function () {
         const self = this;
         var params = {
