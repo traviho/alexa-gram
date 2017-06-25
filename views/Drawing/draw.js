@@ -50,6 +50,7 @@ ctx4.lineWidth = 8;
 ctx4.translate(width/2, height);
 
 function draw() {
+  console.log("Drawing on DRAW.JS");
     var a, b, a2, b2, a3, b3, a4, b4;
 
     for (var id in after) {

@@ -52,10 +52,6 @@ var drawingHTML = `
       <div class="draw-canvas" id="south"></div>
     </div>
   </div>
-
-  <script src="./Drawing/js/lib/leap.js"></script>
-  <script src='./Drawing/js/lib/d3.v3.min.js'></script>
-  <script src='./Drawing/draw.js'></script>
 `;
 
 function searchImage(message) {

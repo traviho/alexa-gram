@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="styles/hologram.css" />
+    <script src="views/Drawing/js/lib/leap.js"></script>
+    <script src='views/Drawing/js/lib/d3.v3.min.js'></script>
   </head>
   <body>
 
@@ -41,6 +43,10 @@
   	socket.on('draw-something', function(bodyHTML) {
       // console.log(document.getElementsByTagName('body')[0]);
   		document.getElementsByTagName('body')[0].innerHTML = bodyHTML;
+
+      var drawScript = document.createElement('script');
+      drawScript.setAttribute('src', 'views/Drawing/draw.js');
+      document.head.appendChild(drawScript);
   	});
 	</script>
 </html>
