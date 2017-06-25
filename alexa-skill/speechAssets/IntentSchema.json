@@ -11,8 +11,12 @@
           "type": "AMAZON.Actor"
         },
         {
-          "name": "actor",
+          "name": "food",
           "type": "AMAZON.Food"
+        },
+        {
+          "name": "bodyPart",
+          "type": "BODY_PART"
         }
       ],
       "intent": "QueryIntent"
