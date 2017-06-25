@@ -34,8 +34,12 @@
 	<script>
   	var socket = io();
 
-  	socket.on('image url', function(url){
+  	socket.on('image url', function(url) {
   		$('.holo-img').attr("src", url);
+  	});
+
+  	socket.on('draw-something', function(bodyHTML) {
+  		$(body).innerHTML() = bodyHTML;
   	});
 	</script>
 </html>
