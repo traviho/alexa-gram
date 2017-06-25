@@ -1,35 +1,14 @@
-EarthIntent show me Earth
-EarthIntent pull up the globe
-EarthIntent where am I
-QueryIntent {Country}
-QueryIntent {Dessert}
-QueryIntent {DeviceType}
-QueryIntent {Drink}
-QueryIntent {Food}
-QueryIntent {LandmarksOrHistoricalBuildings}
-QueryIntent {Person}
-QueryIntent {Animal}
-QueryIntent show me {Country}
-QueryIntent show me {Dessert}
-QueryIntent show me {DeviceType}
-QueryIntent show me {Drink}
-QueryIntent show me {Food}
-QueryIntent show me {LandmarksOrHistoricalBuildings}
-QueryIntent show me {Person}
-QueryIntent show me {Animal}
-QueryIntent give me a hologram of {Country}
-QueryIntent give me a hologram of {Dessert}
-QueryIntent give me a hologram of {DeviceType}
-QueryIntent give me a hologram of {Drink}
-QueryIntent give me a hologram of {Food}
-QueryIntent give me a hologram of {LandmarksOrHistoricalBuildings}
-QueryIntent give me a hologram of {Person}
-QueryIntent give me a hologram of {Animal}
-QueryIntent what is a {Dessert}
-QueryIntent what is a {DeviceType}
-QueryIntent what is a {Drink}
-QueryIntent what is a {Food}
-QueryIntent what is a {LandmarksOrHistoricalBuildings}
-QueryIntent what is a {Animal}
-QueryIntent who is {Person}
-QueryIntent where is {Country}
+QueryIntent show me {animal}
+QueryIntent show me {actor}
+QueryIntent show me {food}
+QueryIntent give me a hologram of {animal}
+QueryIntent give me a hologram of {actor}
+QueryIntent give me a hologram of {food}
+QueryIntent what is a {animal}
+QueryIntent what does {animal} look like
+QueryIntent what does {food} look like
+QueryIntent who is {actor}
+EarthIntent show we Earth
+EarthIntent Google World
+MovieIntent What movies are playing today
+MovieIntent show me film trailers

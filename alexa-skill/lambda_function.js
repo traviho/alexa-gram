@@ -12,13 +12,31 @@ exports.handler = function(event, context, callback) {
 
 var handlers = {
 	'EarthIntent': function () {
-        this.emit(':tell', 'Opening 3D Earth!');
+		const self = this;
+        var params = {
+	        topic: 'topic_query',
+	        payload: "spin-the-earth",
+	        qos: 0
+	    };
+	    iotdata.publish(params, function(err, data){
+	        self.emit(':tell', 'pulling up Earth!');
+	    });
+    },
+    'MovieIntent': function () {
+        const self = this;
+        var params = {
+	        topic: 'topic_query',
+	        payload: "222",
+	        qos: 0
+	    };
+	    iotdata.publish(params, function(err, data){
+	        self.emit(':tell', 'Searching movie trailers!');
+	    });
     },
 	'QueryIntent': function () {
+		const self = this;
 		const slots = this.event.request.intent.slots;
-		const payload = (slots.Animal.value || slots.Country.value || slots.Dessert.value ||
-			slots.DeviceType.value || slots.Drink.value || slots.Food.value ||
-			slots.LandmarksOrHistoricalBuildings.value || slots.Person.value);
+		const payload = slots.animal.value || slots.actor.value || slots.food.value;
 		if (!payload){
 			this.emit(':tell', 'I could not find what you are looking for!');
 		}
@@ -28,8 +46,7 @@ var handlers = {
 	        qos: 0
 	    };
 	    iotdata.publish(params, function(err, data){
-	        context.done(err, data);
+	        self.emit(':tell', 'pulling that up for you!');
 	    });
-	    this.emit(':tell', 'Pulling that up for you!');
     }
 };

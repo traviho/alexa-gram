@@ -3,42 +3,25 @@
     {
       "slots": [
         {
-          "name": "Animal",
+          "name": "animal",
           "type": "AMAZON.Animal"
         },
         {
-          "name": "Country",
-          "type": "AMAZON.Country"
+          "name": "actor",
+          "type": "AMAZON.Actor"
         },
         {
-          "name": "Dessert",
-          "type": "AMAZON.Dessert"
-        },
-        {
-          "name": "DeviceType",
-          "type": "AMAZON.DeviceType"
-        },
-        {
-          "name": "Drink",
-          "type": "AMAZON.Drink"
-        },
-        {
-          "name": "Food",
+          "name": "actor",
           "type": "AMAZON.Food"
-        },
-        {
-          "name": "LandmarksOrHistoricalBuildings",
-          "type": "AMAZON.LandmarksOrHistoricalBuildings"
-        },
-        {
-          "name": "Person",
-          "type": "AMAZON.Person"
         }
       ],
       "intent": "QueryIntent"
     },
     {
       "intent": "EarthIntent"
+    },
+    {
+      "intent": "MovieIntent"
     }
   ]
 }
