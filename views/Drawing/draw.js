@@ -37,23 +37,22 @@ var controllerOptions = { enableGestures: true },
     after = {},
     color = d3.scale.category20();
 
-ctx.lineWidth = 5;
+ctx.lineWidth = 8;
 ctx.translate(width/2, height);
 
-ctx2.lineWidth = 5;
+ctx2.lineWidth = 8;
 ctx2.translate(width/2, height);
 
-ctx3.lineWidth = 5;
+ctx3.lineWidth = 8;
 ctx3.translate(width/2, height);
 
-ctx4.lineWidth = 5;
+ctx4.lineWidth = 8;
 ctx4.translate(width/2, height);
 
 function draw() {
     var a, b, a2, b2, a3, b3, a4, b4;
 
     for (var id in after) {
-      console.log("The ID is: " + id)
         b = before[id],
         a = after[id];
 
