@@ -37,16 +37,16 @@ var controllerOptions = { enableGestures: true },
     after = {},
     color = d3.scale.category20();
 
-ctx.lineWidth = 15;
+ctx.lineWidth = 5;
 ctx.translate(width/2, height);
 
-ctx2.lineWidth = 15;
+ctx2.lineWidth = 5;
 ctx2.translate(width/2, height);
 
-ctx3.lineWidth = 15;
+ctx3.lineWidth = 5;
 ctx3.translate(width/2, height);
 
-ctx4.lineWidth = 15;
+ctx4.lineWidth = 5;
 ctx4.translate(width/2, height);
 
 function draw() {
