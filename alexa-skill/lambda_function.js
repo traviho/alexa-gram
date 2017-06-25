@@ -11,21 +11,25 @@ exports.handler = function(event, context, callback) {
 };
 
 var handlers = {
+	'EarthIntent': function () {
+        this.emit(':tell', 'Opening 3D Earth!');
+    },
 	'QueryIntent': function () {
 		const slots = this.event.request.intent.slots;
-		const payload = slots.animal.value || slots.actor.value || slots.area.value;
+		const payload = (slots.Animal.value || slots.Country.value || slots.Dessert.value ||
+			slots.DeviceType.value || slots.Drink.value || slots.Food.value ||
+			slots.LandmarksOrHistoricalBuildings.value || slots.Person.value);
+		if (!payload){
+			this.emit(':tell', 'I could not find what you are looking for!');
+		}
 		var params = {
 	        topic: 'topic_query',
 	        payload: payload,
 	        qos: 0
 	    };
 	    iotdata.publish(params, function(err, data){
-	        if(err){
-	            console.log(err);
-	        }	
-	        else{
-	            console.log("success");
-	        }
+	        context.done(err, data);
 	    });
+	    this.emit(':tell', 'Pulling that up for you!');
     }
 };
