@@ -26,7 +26,12 @@ device
 device
   .on('message', function(topic, payload) {
     message = payload.toString();
-    searchImage(message);
+
+    if (message == "spin-the-earth") {
+      io.emit('image url', imageUrl);
+    } else {
+      searchImage(message);
+    }
   });
 
 function searchImage(message) {
@@ -74,7 +79,7 @@ function searchImage(message) {
   // client.search('Steve Angello', {size: 'large'});
 }
 
-var imgUrl = "http://www.pngmart.com/files/1/Cat-PNG-File.png"
+var imgUrl = "../Alexagram-Welcome-Screen.png"
 
 app.get('/', function(req, res){
   res.render('hologram', {
