@@ -95,10 +95,10 @@ function createSphere(radius, segments) {
 return new THREE.Mesh(
   new THREE.SphereGeometry(radius, segments, segments),
   new THREE.MeshPhongMaterial({
-    map:         THREE.ImageUtils.loadTexture('./Globe/2_no_clouds_4k.jpg'),
-    bumpMap:     THREE.ImageUtils.loadTexture('./Globe/elev_bump_4k.jpg'),
+    map:         THREE.ImageUtils.loadTexture('views/Globe/2_no_clouds_4k.jpg'),
+    bumpMap:     THREE.ImageUtils.loadTexture('views/Globe/elev_bump_4k.jpg'),
     bumpScale:   0.005,
-    specularMap: THREE.ImageUtils.loadTexture('./Globe/water_4k.png'),
+    specularMap: THREE.ImageUtils.loadTexture('.views/Globe/water_4k.png'),
     specular:    new THREE.Color('grey')
   })
 );
@@ -108,7 +108,7 @@ function createClouds(radius, segments) {
 return new THREE.Mesh(
   new THREE.SphereGeometry(radius + 0.003, segments, segments),
   new THREE.MeshPhongMaterial({
-    map:         THREE.ImageUtils.loadTexture('./Globe/fair_clouds_4k.png'),
+    map:         THREE.ImageUtils.loadTexture('views/Globe/fair_clouds_4k.png'),
     transparent: true
   })
 );

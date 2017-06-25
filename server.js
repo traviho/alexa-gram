@@ -7,9 +7,9 @@ app.set('view engine', 'ejs');
 var $ = require('jquery');
 var awsIot = require('aws-iot-device-sdk');
 var Client = require('node-rest-client').Client;
- 
+
 var client = new Client();
- 
+
 
 app.use(express.static(__dirname + '/'));
 
@@ -42,9 +42,9 @@ device
     } else if (message === "meme-gifs") {
       searchImage('meme-gifs');
     } else if (message.includes("weather")) {
- var str = message.replace(/\s/g, '_');
- str = str.substr(8);
- getWeather(str);
+      var str = message.replace(/\s/g, '_');
+      str = str.substr(8);
+      getWeather(str);
     }else{
       searchImage(message);
     }
@@ -52,10 +52,10 @@ device
 function getWeather(message){
   console.log("http://api.wunderground.com/api/58fb1eddb9fd5550/conditions/q/" + message +".json");
 client.get("http://api.wunderground.com/api/58fb1eddb9fd5550/conditions/q/CA/" + message +".json", function (data, response) {
-    // parsed response body as js object 
+    // parsed response body as js object
     console.log(data);
-    console.log(data.current_observation.temp_f); 
-    console.log(data.current_observation.weather); 
+    console.log(data.current_observation.temp_f);
+    console.log(data.current_observation.weather);
     if (data.current_observation.precip_today_metric > 0)
     imgUrl = "https://media.giphy.com/media/PbOaO2fedzQLm/giphy.gif"
     else if (data.current_observation.weather == "Overcast"){
@@ -63,6 +63,8 @@ client.get("http://api.wunderground.com/api/58fb1eddb9fd5550/conditions/q/CA/" +
     }else {
       imgUrl = "https://media.giphy.com/media/10d3NDzD40xb0s/giphy.gif"
     }
+
+    io.emit('image url', imageHTML, imgUrl);
 });
 }
 

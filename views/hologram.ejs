@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="styles/hologram.css" />
-    <script src="views/Drawing/js/lib/leap.js"></script>
+  <!-- <script src="views/Drawing/js/lib/leap.js"></script> -->
     <script src='views/Drawing/js/lib/d3.v3.min.js'></script>
-    <script src="https://js.leapmotion.com/leap-0.6.4.js"></script>
+    <!-- <script src="https://js.leapmotion.com/leap-0.6.4.js"></script> -->
     <script src="views/Globe/build/three.min.js"></script>
     <script src="views/Globe/build/three.js"></script>
     <script src="views/Globe/js/effects/PeppersGhostEffect.js"></script>
@@ -52,15 +52,45 @@
       // console.log(document.getElementsByTagName('body')[0]);
   		document.getElementsByTagName('body')[0].innerHTML = bodyHTML;
 
-      var drawScript = document.createElement('script');
-      drawScript.setAttribute('src', 'views/Drawing/draw.js');
-      document.head.appendChild(drawScript);
+      $('script').each(function() {
+          if ($(this).attr('src') == 'views/Drawing/js/lib/leap.js' || $(this).attr('src') == 'https://js.leapmotion.com/leap-0.6.4.js') {
+              var old_src = $(this).attr('src');
+              $(this).attr('src', '');
+              setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
+          }
+      });
+
+      var leapScript = document.createElement('script');
+      leapScript.setAttribute('src', 'views/Drawing/js/lib/leap.js');
+      document.head.appendChild(leapScript);
+
+      setTimeout(function() {
+        var drawScript = document.createElement('script');
+        drawScript.setAttribute('src', 'views/Drawing/draw.js');
+        document.head.appendChild(drawScript);
+      }, 500);
   	});
 
     socket.on('spin-the-earth', function() {
-      var drawScript = document.createElement('script');
-      drawScript.setAttribute('src', 'views/Globe/globe.js');
-      document.head.appendChild(drawScript);
+      document.getElementsByTagName('body')[0].innerHTML = '';
+
+      $('script').each(function() {
+          if ($(this).attr('src') == 'views/Drawing/js/lib/leap.js' || $(this).attr('src') == 'https://js.leapmotion.com/leap-0.6.4.js') {
+              var old_src = $(this).attr('src');
+              $(this).attr('src', '');
+              setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
+          }
+      });
+
+      var leapScript = document.createElement('script');
+      leapScript.setAttribute('src', 'https://js.leapmotion.com/leap-0.6.4.js');
+      document.head.appendChild(leapScript);
+
+      setTimeout(function() {
+        var drawScript = document.createElement('script');
+        drawScript.setAttribute('src', 'views/Globe/globe.js');
+        document.head.appendChild(drawScript);
+      }, 500);
   	});
 	</script>
 </html>
