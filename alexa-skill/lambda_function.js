@@ -15,7 +15,7 @@ var handlers = {
 		const self = this;
         var params = {
 	        topic: 'topic_query',
-	        payload: "spin-the-earth",
+	        payload: "111",
 	        qos: 0
 	    };
 	    iotdata.publish(params, function(err, data){
@@ -33,12 +33,26 @@ var handlers = {
 	        self.emit(':tell', 'Searching movie trailers!');
 	    });
     },
+    'WeatherIntent': function () {
+        const self = this;
+        var params = {
+	        topic: 'topic_query',
+	        payload: "333",
+	        qos: 0
+	    };
+	    iotdata.publish(params, function(err, data){
+	        self.emit(':tell', 'The weather for today!');
+	    });
+    },
 	'QueryIntent': function () {
 		const self = this;
 		const slots = this.event.request.intent.slots;
-		const payload = slots.animal.value || slots.actor.value || slots.food.value;
+		var payload = slots.animal.value || slots.actor.value || slots.food.value || slots.bodyPart.value;
+		if (slots.bodyPart.value) {
+		    payload = 'human ' + payload + ' model';
+		}
 		if (!payload){
-			this.emit(':tell', 'I could not find what you are looking for!');
+			self.emit(':tell', 'I could not find what you are looking for!');
 		}
 		var params = {
 	        topic: 'topic_query',
