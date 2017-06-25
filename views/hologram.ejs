@@ -6,6 +6,12 @@
     <link rel="stylesheet" type="text/css" href="styles/hologram.css" />
     <script src="views/Drawing/js/lib/leap.js"></script>
     <script src='views/Drawing/js/lib/d3.v3.min.js'></script>
+    <script src="https://js.leapmotion.com/leap-0.6.4.js"></script>
+    <script src="views/Globe/build/three.min.js"></script>
+    <script src="views/Globe/build/three.js"></script>
+    <script src="views/Globe/js/effects/PeppersGhostEffect.js"></script>
+    <script src="views/Globe/js/Detector.js"></script>
+
   </head>
   <body>
 
@@ -46,6 +52,12 @@
 
       var drawScript = document.createElement('script');
       drawScript.setAttribute('src', 'views/Drawing/draw.js');
+      document.head.appendChild(drawScript);
+  	});
+
+    socket.on('spin-the-earth', function() {
+      var drawScript = document.createElement('script');
+      drawScript.setAttribute('src', 'views/Globe/globe.js');
       document.head.appendChild(drawScript);
   	});
 	</script>

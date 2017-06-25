@@ -59,3 +59,25 @@ canvas {
   -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
   transform: rotate(-90deg);
 }
+
+
+/* Earth stuff */
+#info {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    color: #ffffff;
+    padding: 5px;
+    font-family: Monospace;
+    font-size: 13px;
+    text-align: center;
+    z-index: 1000;
+}
+
+a {
+    color: #ffffff;
+}
+
+#oldie a {
+    color: #da0
+}
