@@ -7,18 +7,18 @@ var controllerOptions = { enableGestures: true },
     for ( i = 0; i < 5; i++) {
 
     }
-    canvas = d3.select('div#container1')
+    canvas = d3.select('div#north')
         .append('canvas')
         .attr('width', width)
         .attr('height', height).node(),
-    canvas2 = d3.select('div#container2')
-            .append('canvas')
-            .attr('width', width)
-            .attr('height', height).node(),
-    canvas3 = d3.select('div#container3')
-                    .append('canvas')
-                    .attr('width', width)
-                    .attr('height', height).node(),
+    canvas2 = d3.select('div#east')
+        .append('canvas')
+        .attr('width', width)
+        .attr('height', height).node(),
+    canvas3 = d3.select('div#west')
+        .append('canvas')
+        .attr('width', width)
+        .attr('height', height).node(),
     ctx = canvas.getContext('2d'),
     ctx2 = canvas2.getContext('2d'),
     ctx3 = canvas3.getContext('2d'),
