@@ -24,7 +24,10 @@
     "http": "0.0.0",
     "jquery": "^3.2.1",
     "request": "^2.81.0",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.0.3",
+    "google-images": "^2.1.0",
+    "file-system": "^2.2.2",
+    "request": "^2.81.0"
   },
   "homepage": "https://github.com/traviho/alexa-gram#readme"
 }
