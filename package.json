@@ -18,7 +18,9 @@
   },
   "dependencies": {
     "aws-iot-device-sdk": "^1.0.14",
-    "google-images": "^2.1.0"
+    "google-images": "^2.1.0",
+    "file-system": "^2.2.2",
+    "request": "^2.81.0"
   },
   "homepage": "https://github.com/traviho/alexa-gram#readme"
 }
