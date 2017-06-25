@@ -1,10 +1,16 @@
 var express = require('express');
 var app = express();
+var request = require('request');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 app.set('view engine', 'ejs');
 var $ = require('jquery');
 var awsIot = require('aws-iot-device-sdk');
+var Client = require('node-rest-client').Client;
+ 
+var client = new Client();
+ 
+
 app.use(express.static(__dirname + '/'));
 
 var message = 'none';
@@ -35,10 +41,31 @@ device
       io.emit('image url', "../Alexagram-Welcome-Screen.png")
     } else if (message === "meme-gifs") {
       searchImage('meme-gifs');
-    } else {
+    } else if (message.includes("weather")) {
+ var str = message.replace(/\s/g, '_');
+ str = str.substr(8);
+ getWeather(str);
+    }else{
       searchImage(message);
     }
   });
+function getWeather(message){
+  console.log("http://api.wunderground.com/api/58fb1eddb9fd5550/conditions/q/" + message +".json");
+client.get("http://api.wunderground.com/api/58fb1eddb9fd5550/conditions/q/CA/" + message +".json", function (data, response) {
+    // parsed response body as js object 
+    console.log(data);
+    console.log(data.current_observation.temp_f); 
+    console.log(data.current_observation.weather); 
+    if (data.current_observation.precip_today_metric > 0)
+    imgUrl = "https://media.giphy.com/media/PbOaO2fedzQLm/giphy.gif"
+    else if (data.current_observation.weather == "Overcast"){
+      imgUrl = "https://media.giphy.com/media/3o7rc6sa2RvKo8K5EI/giphy.gif"
+    }else {
+      imgUrl = "https://media.giphy.com/media/10d3NDzD40xb0s/giphy.gif"
+    }
+});
+}
+
 
 var drawingHTML = `
   <div class="container">
