@@ -1,3 +1,10 @@
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+app.set('view engine', 'ejs');
+var request = require('request');
+var $ = require('jquery');
 var awsIot = require('aws-iot-device-sdk');
 
 var message = 'none';
@@ -50,7 +57,7 @@ function searchImage(message) {
          URLs.push(imgInfo.url);
        })
 
-       var imageUrl = URLs[0];
+       imageUrl = URLs[0];
        URLs.forEach(function(url) {
          if (url.substr(-4) == ".png") {
            imageUrl = url;
@@ -58,9 +65,23 @@ function searchImage(message) {
        });
 
        console.log(imageUrl);
+       io.emit('image url', imageUrl);
+
        // make save image function call here
   	});
-    
+
   // search for certain size
   // client.search('Steve Angello', {size: 'large'});
 }
+
+var imgUrl = "http://www.pngmart.com/files/1/Cat-PNG-File.png"
+
+app.get('/', function(req, res){
+  res.render('hologram', {
+    url: imgUrl
+  });
+});
+
+http.listen(3000, function() {
+    console.log('Alexa-gram listening on port 3000!');
+});
